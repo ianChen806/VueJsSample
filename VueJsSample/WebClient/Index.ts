@@ -1,17 +1,9 @@
 import Vue from "vue"
+import Hello from "./Components/Hello.vue"
 
 new Vue({
-    el: "#app",
-    data: {
-        message: "hello world.",
-        name:"name"
-    },
-    methods: {
-        Hello: function () {
-            alert("hello");
-        }
-    },
-    mounted : function(){
-        console.log('Hello Webpack and Vue !');
+    el:"#app",
+    components:{
+        Hello
     }
 })

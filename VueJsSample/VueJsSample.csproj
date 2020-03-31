@@ -4,5 +4,10 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <TypeScriptCompile Include="vue-shims.ts" />
+      <TypeScriptCompile Include="WebClient\Index.ts" />
+    </ItemGroup>
+
 
 </Project>

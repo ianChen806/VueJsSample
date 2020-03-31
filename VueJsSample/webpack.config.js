@@ -1,10 +1,11 @@
-const path = require("path");
+const Path = require("path");
+const VueLoaderPlugin = require("vue-loader/lib/plugin")
 
 module.exports = {
     entry: './WebClient/index.ts',
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, "wwwroot")
+        path: Path.resolve(__dirname, "wwwroot")
     },
     mode: "development",
     devtool: "source-map",
@@ -19,7 +20,18 @@ module.exports = {
                 test: /\.ts$/,
                 loader: "ts-loader",
                 include: /WebClient/,
-            }
+                options:{
+                    appendTsSuffixTo:[/\.vue/]
+                }
+            },
+            {
+                test: /\.vue$/,
+                loader: "vue-loader",
+                include: /WebClient/,
+            },
         ]
-    }
+    },
+    plugins:[
+        new VueLoaderPlugin()
+    ]
 }
