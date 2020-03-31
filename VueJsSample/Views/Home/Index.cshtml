@@ -2,8 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div id="app" class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>{{message}}</p>
+    <p>{{name}}</p>
+    <button v-on:click="Hello()">Button</button>
+    <input v-model="name" type="text">
 </div>
 <script src="~/bundle.js"></script>
