@@ -6,36 +6,30 @@
             Input
             <input v-model="Name" type="text">
         </label>
-        
+
         <button v-on:click="Hello">Button</button>
         <p>{{Total}}</p>
     </div>
 </template>
 
 <script lang="ts">
-    import Vue from "vue"
+    import Component from "vue-class-component"
+    import {Vue, Prop} from "vue-property-decorator";
 
-    export default Vue.extend({
-        props: ["Index"],
+    @Component
+    export default class Hello extends Vue {
+        @Prop({default: 0}) Index!: number
 
-        data() {
-            return {
-                Name: "Test",
-                Title: "Title",
-                Index: this.Index,
-            }
-        },
+        private Name: string = "Test";
+        private Title: string = "Title";
+        private IndexCount: number = this.Index;
 
-        methods: {
-            Hello() {
-                alert("hello");
-            }
-        },
-
-        computed: {
-            Total(): number {
-                return this.Index + 1;
-            }
+        Hello() {
+            alert("hello");
         }
-    })
+
+        get Total(): number {
+            return this.IndexCount + 1;
+        }
+    }
 </script>
